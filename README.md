@@ -1,2 +1,2 @@
-# Final-of-misy225
+# App made by Yuhao Guan & Ziyan Qiu
  
