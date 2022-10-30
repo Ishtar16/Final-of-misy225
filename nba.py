@@ -12,15 +12,20 @@ df = pd.read_csv('nbasalarystats.csv')
 score_slider = st.slider('Minimal PTS', 0, 35, 10)
 df = df[df.PTS >= score_slider]
 
+score_slider2 = st.slider('Maximum PTS', 0, 35, 15)
+df = df[df.PTS <= score_slider2]
+
 AST_slider = st.slider('Minimal AST', 0, 13, 3)
 df = df[df.AST >= AST_slider]
+
+AST_slider2 = st.slider('Maximum AST', 0, 13, 5)
+df = df[df.AST <= AST_slider2]
 
 TRB_slider = st.slider('Minimal TRB', 0, 17, 5)
 df = df[df.TRB >= TRB_slider]
 
-
-
-
+TRB_slider2 = st.slider('Maximum TRB', 0, 17, 10)
+df = df[df.TRB <= TRB_slider2]
 
 
 # add a position multi selector
@@ -61,6 +66,7 @@ st.header('Salary levels related to performance')
 st.write(f'The median number is $ {df.Salary.median()}')
 st.write(f'The max salary is $ {df.Salary.max()}')
 st.write(f'The minimum salary is $ {df.Salary.min()}')
+st.write(f'The total salary is $ {df.Salary.sum()}')
 fig, ax = plt.subplots()
 sal_data = df.Salary
 sal_data.plot.hist(ax=ax, bins=30)
