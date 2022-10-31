@@ -3,5 +3,5 @@ plugins:
 - jekyll-remote-theme
 
 title: NBA players salary analysis
-description: "Data source---Kaggle\Data used---position, age, team name, points, assists, rebounds\Calculated data---Player efficiency value\function---forecasting salaries, helping GM or players to make decision and plan"
+description: This is a statistical analysis app
 show_downloads: ['true']
