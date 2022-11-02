@@ -9,22 +9,22 @@ df = pd.read_csv('nbasalarystats.csv')
 
 
 # add score sliders
-score_slider = st.slider('Minimal PTS', 0, 35, 10)
+score_slider = st.slider('Minimal PTS(points per game)', 0, 35, 10)
 df = df[df.PTS >= score_slider]
 
-score_slider2 = st.slider('Maximum PTS', 0, 35, 15)
+score_slider2 = st.slider('Maximum PTS(points per game)', 0, 35, 15)
 df = df[df.PTS <= score_slider2]
 
-AST_slider = st.slider('Minimal AST', 0, 13, 3)
+AST_slider = st.slider('Minimal AST(assitances per game)', 0, 13, 3)
 df = df[df.AST >= AST_slider]
 
-AST_slider2 = st.slider('Maximum AST', 0, 13, 5)
+AST_slider2 = st.slider('Maximum AST(assitances per game)', 0, 13, 5)
 df = df[df.AST <= AST_slider2]
 
-TRB_slider = st.slider('Minimal TRB', 0, 17, 5)
+TRB_slider = st.slider('Minimal TRB(total rebounds per game)', 0, 17, 5)
 df = df[df.TRB >= TRB_slider]
 
-TRB_slider2 = st.slider('Maximum TRB', 0, 17, 10)
+TRB_slider2 = st.slider('Maximum TRB(total rebounds per game)', 0, 17, 10)
 df = df[df.TRB <= TRB_slider2]
 
 
@@ -76,7 +76,7 @@ st.pyplot(fig)
 # bar plot
 st.header('Salary of different positions')
 fig, ax = plt.subplots()
-pos_sum = df.groupby('Pos')['Salary'].sum()
+pos_sum = df.groupby('Pos')['Salary'].sum().sort_values()
 pos_sum.plot.bar(ax=ax)
 st.pyplot(fig)
 
